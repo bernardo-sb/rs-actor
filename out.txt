@@ -1,0 +1,35 @@
+[ActorHandler::new] Creating new actor: af584158-9f7e-4e6c-a58f-87e263c18434
+[ActorHandler::new] Creating new actor: deacb94e-90f9-44c8-bba8-44951c2029e6
+[main] Actors created
+[main] Actor1: ActorHandler { id: af584158-9f7e-4e6c-a58f-87e263c18434, tx: Sender { chan: Tx { inner: Chan { tx: Tx { block_tail: 0x127008600, tail_position: 0 }, semaphore: Semaphore { semaphore: Semaphore { permits: 10 }, bound: 10 }, rx_waker: AtomicWaker, tx_count: 1, rx_fields: "..." } } }, state: Mutex { data: RefCell { value: Ready }, poisoned: false, .. } }
+[main] Actor2: ActorHandler { id: deacb94e-90f9-44c8-bba8-44951c2029e6, tx: Sender { chan: Tx { inner: Chan { tx: Tx { block_tail: 0x127008c00, tail_position: 0 }, semaphore: Semaphore { semaphore: Semaphore { permits: 10 }, bound: 10 }, rx_waker: AtomicWaker, tx_count: 1, rx_fields: "..." } } }, state: Mutex { data: RefCell { value: Ready }, poisoned: false, .. } }
+[main] Waiting for producers to finish sending messages
+[ActorHandler.stop] Stopping actor: af584158-9f7e-4e6c-a58f-87e263c18434
+[ActorHandler.stop] Stopping actor: deacb94e-90f9-44c8-bba8-44951c2029e6
+[Actor.run] Actor af584158-9f7e-4e6c-a58f-87e263c18434 is running
+[Actor.process] Actor af584158-9f7e-4e6c-a58f-87e263c18434 received message:
+	TextMessage { id: 2ca298c2-7a83-4584-9438-f05364f9bba5, body: "Hello, Actor1!" }
+	counter: 1.
+[Actor.process] Actor af584158-9f7e-4e6c-a58f-87e263c18434 received message: IncrementCounter { by: 1 }
+	counter: 2
+[Actor.process] Actor af584158-9f7e-4e6c-a58f-87e263c18434 received stop message
+[Actor.run] Actor deacb94e-90f9-44c8-bba8-44951c2029e6 is running
+[Actor.process] Actor deacb94e-90f9-44c8-bba8-44951c2029e6 received message:
+	TextMessage { id: 2eaf4180-f6e8-406d-97bf-03b4af1192b9, body: "Hello, Actor2!" }
+	counter: 1.
+[Actor.run] Actor af584158-9f7e-4e6c-a58f-87e263c18434 is shutting down...
+[Actor.process] Actor deacb94e-90f9-44c8-bba8-44951c2029e6 received message:
+	TextMessage { id: b0aeda22-d507-4d7b-9ab6-4a3bb7cd70d2, body: "Hey again Actor2!" }
+	counter: 2.
+[ActorHandler.stop] Acknowledged! Actor af584158-9f7e-4e6c-a58f-87e263c18434 has stopped
+[Actor.process] Actor deacb94e-90f9-44c8-bba8-44951c2029e6 received message: IncrementCounter { by: 1 }
+	counter: 3
+[Actor.process] Actor deacb94e-90f9-44c8-bba8-44951c2029e6 received stop message
+[Actor.run] Actor deacb94e-90f9-44c8-bba8-44951c2029e6 is shutting down...
+[ActorHandler.stop] Acknowledged! Actor deacb94e-90f9-44c8-bba8-44951c2029e6 has stopped
+[main] Actor1 state: 'Stopped'
+[main] Actor2 state: 'Stopped'
+[main] Waiting for actors to finish processing messages
+[main] Done
+[main] Actor1 state: 'Stopped'
+[main] Actor2 state: 'Stopped'
